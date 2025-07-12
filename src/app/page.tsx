@@ -37,7 +37,12 @@ import {
   Package,
   ShoppingCart,
 } from "lucide-react";
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  DropResult,
+} from "@hello-pangea/dnd";
 
 interface Task {
   id: string;
@@ -218,7 +223,7 @@ export default function TodoAlmacen() {
     setIsNoteDialogOpen(true);
   };
 
-  const handleDragEnd = (result: any) => {
+  const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
 
     const items = Array.from(getFilteredTasks());
